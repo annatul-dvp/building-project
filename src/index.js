@@ -2,6 +2,8 @@ import { svg, el, setChildren, mount } from 'redom'
 import './scss/main.scss'
 import panthouseView1Bg from './assets/imgs/penthouse-view-1-full-black-white.jpg'
 import panthouseView1 from './assets/imgs/penthouse-view-1.jpg'
+import panthouseView2Bg from './assets/imgs/penthouse-view-2-black-white.jpg'
+import panthouseView2 from './assets/imgs/penthouse-view-2.jpg'
 
 /* Header */
 const header = el('header', { class: 'container header' })
@@ -41,16 +43,122 @@ setChildren(headerContacts, [headerLogoLink, headerTelLink])
 setChildren(header, [headerNavButton, headerTitle, headerSortButton, headerContacts])
 
 /* Main */
-const main = el('main', { class: 'container main' })
+const main = el('main', { class: 'container main main_view-1' })
 
-const mainCentralBlock = el('div', { class: 'picture-block main__central-block' })
+const mainCentralBlock = el('div', { class: 'picture-block picture-block_view-1 main__central-block main__central-block' })
 const mainCentralBlockBgImg = el('img', { class: 'picture-block__bg', src: panthouseView1Bg })
-const mainCentralBlockBgFilter = el('div', { class: 'picture-block__bg-filter' })
-const mainCentralBlockImg = el('img', { class: 'picture-block__img', src: panthouseView1 })
+const mainCentralBlockBgFilter = el('div', { class: 'picture-block__bg-filter picture-block__bg-filter_view-1' })
+const mainCentralBlockImg = el('img', { class: 'picture-block__img picture-block__img_view-1', src: panthouseView1 })
 
-mount(mainCentralBlock, mainCentralBlockBgImg)
-mount(mainCentralBlock, mainCentralBlockBgFilter)
-mount(mainCentralBlock, mainCentralBlockImg)
+const mainNav = el('nav', { class: 'nav main__nav' })
+const mainNavList = el('ul', { class: 'nav__list' })
+const mainNavItem1 = el('li', { class: 'nav__item nav__item_chosen' }, 'Пентхаусы')
+const mainNavItem2 = el('li', { class: 'nav__item' }, 'Квартиры')
+const mainNavItem3 = el('li', { class: 'nav__item' }, 'Ситихаусы')
+const mainNavItem4 = el('li', { class: 'nav__item' }, 'Виллы')
+
+setChildren(mainNavList, [mainNavItem1, mainNavItem2, mainNavItem3, mainNavItem4])
+mount(mainNav, mainNavList)
+
+setChildren(mainCentralBlock, [mainCentralBlockBgImg, mainCentralBlockBgFilter, mainCentralBlockImg])
 mount(main, mainCentralBlock)
+mount(main, mainNav)
 
 setChildren(document.body, [header, main])
+
+document.addEventListener('DOMContentLoaded', () => {
+  let chosenNavItem = document.querySelector('.nav__item_chosen')
+  let chosenNavItemText = chosenNavItem.innerText
+
+  mainNavItem1.addEventListener('click', () => {
+    console.log('mainNavItem1')
+
+    if (chosenNavItemText === 'Виллы') {
+      main.classList.remove('main_view-2')
+      main.classList.add('main_view-1')
+
+      mainCentralBlockBgImg.src = panthouseView1Bg
+      mainCentralBlockImg.classList.remove('picture-block__bg-filter_view-2')
+      mainCentralBlockImg.classList.add('picture-block__bg-filter_view-1')
+
+      mainCentralBlock.classList.remove('picture-block_view-2')
+      mainCentralBlock.classList.add('picture-block_view-1')
+      mainCentralBlockImg.src = panthouseView1
+    }
+
+    chosenNavItem.classList.remove('nav__item_chosen')
+    mainNavItem1.classList.add('nav__item_chosen')
+    chosenNavItem = mainNavItem1
+    chosenNavItemText = mainNavItem1.innerText
+    headerTitle.innerText = chosenNavItemText
+  })
+
+  mainNavItem2.addEventListener('click', () => {
+    console.log('mainNavItem2')
+
+    if (chosenNavItemText === 'Виллы') {
+      main.classList.remove('main_view-2')
+      main.classList.add('main_view-1')
+
+      mainCentralBlockBgImg.src = panthouseView1Bg
+      mainCentralBlockImg.classList.remove('picture-block__img_view-2')
+      mainCentralBlockImg.classList.add('picture-block__img_view-1')
+
+      mainCentralBlock.classList.remove('picture-block_view-2')
+      mainCentralBlock.classList.add('picture-block_view-1')
+      mainCentralBlockImg.src = panthouseView1
+    }
+
+    chosenNavItem.classList.remove('nav__item_chosen')
+    mainNavItem2.classList.add('nav__item_chosen')
+    chosenNavItem = mainNavItem2
+    chosenNavItemText = mainNavItem2.innerText
+    headerTitle.innerText = chosenNavItemText
+  })
+
+  mainNavItem3.addEventListener('click', () => {
+    console.log('mainNavItem3')
+
+    if (chosenNavItemText === 'Виллы') {
+      main.classList.remove('main_view-2')
+      main.classList.add('main_view-1')
+
+      mainCentralBlockBgImg.src = panthouseView1Bg
+      mainCentralBlockImg.classList.remove('picture-block__img_view-2')
+      mainCentralBlockImg.classList.add('picture-block__img_view-1')
+
+      mainCentralBlock.classList.remove('picture-block_view-2')
+      mainCentralBlock.classList.add('picture-block_view-1')
+      mainCentralBlockImg.src = panthouseView1
+    }
+
+    chosenNavItem.classList.remove('nav__item_chosen')
+    mainNavItem3.classList.add('nav__item_chosen')
+    chosenNavItem = mainNavItem3
+    chosenNavItemText = mainNavItem3.innerText
+    headerTitle.innerText = chosenNavItemText
+  })
+
+  mainNavItem4.addEventListener('click', () => {
+    console.log('mainNavItem4')
+
+    if (chosenNavItemText !== 'Виллы') {
+      main.classList.remove('main_view-1')
+      main.classList.add('main_view-2')
+
+      mainCentralBlockBgImg.src = panthouseView2Bg
+      mainCentralBlockImg.classList.remove('picture-block__img_view-1')
+      mainCentralBlockImg.classList.add('picture-block__img_view-2')
+
+      mainCentralBlock.classList.remove('picture-block_view-1')
+      mainCentralBlock.classList.add('picture-block_view-2')
+      mainCentralBlockImg.src = panthouseView2
+    }
+
+    chosenNavItem.classList.remove('nav__item_chosen')
+    mainNavItem4.classList.add('nav__item_chosen')
+    chosenNavItem = mainNavItem4
+    chosenNavItemText = mainNavItem4.innerText
+    headerTitle.innerText = chosenNavItemText
+  })
+})
