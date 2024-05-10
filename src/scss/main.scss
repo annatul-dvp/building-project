@@ -1,0 +1,207 @@
+@forward "./fonts.scss";
+@import "./variables.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 1vw;
+  font-family: 'Galatea', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  color: $text-dark-color;
+}
+
+body {
+  height: 100vh;
+}
+
+.container {
+  padding-left: 2.5%;
+  padding-right: 6.95%;
+}
+
+.link {
+  text-decoration: none;
+
+  &_dark-style {
+    color: $text-dark-color;
+  }
+
+  &_light-style {
+    color: $text-light-color;
+  }
+}
+
+.link-with-img {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.3rem;
+
+  &__img {
+    position: absolute;
+    height: 1.3rem;
+    width: auto;
+    margin-top: 50%;
+    transform: translateY(-23%);
+  }
+
+  &__txt {
+    position: relative;
+    z-index: 2;    
+    display: inline-block;
+    font-size: .7rem;
+  }
+}
+
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10.32%;
+  width: 100%;
+  background-color: #F0EDE8;
+
+  &__nav-button {
+    position: relative;
+    height: 12%;
+    width: 2.8%;
+    border: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: #000000;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: #000000;
+    }
+  }
+
+  &__title {
+    z-index: 1;
+    position: absolute;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 100%;
+    width: 23.1%;
+    background-color: #FFFFFF;
+    color: $text-middle-color;
+    font-family: 'Brewery', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.35rem;
+    transform-origin: top center;
+    transform: scale(1.1) translateX(-45.5%);
+  }
+
+  &__sort-button {
+    margin-left: 63%;
+    font-family: 'Galatea', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 200;
+    font-size: 1.2rem;
+  }
+
+  &__contacts {
+    display: flex;
+    justify-content: space-between;
+    width: 11.5%;
+    font-size: 1.14rem;
+  }
+}
+
+.sort-button {
+  display: flex;
+  align-items: flex-end;
+  border: none;
+  
+  &__img {
+    margin-right: 10px;
+  }
+
+  &__txt {
+    line-height: 1;
+    transform: translateY(.1rem);
+  }
+
+}
+
+.main {
+  position: relative;
+  height: 89.68%;
+  width: 100%;
+  background-image: url('../assets/imgs/penthouse-view-1-full-black-white.jpg');
+  background-color: #F0EDE8D9;
+  background-size: cover;
+  background-blend-mode: overlay;
+
+  &__central-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-height: 100%;
+    width: 80vw;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+.picture-block {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__bg {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__bg-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #F0EDE8D9;
+}
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    height: 98%;
+    left: 13%;
+    mask-image: url('../assets/imgs/penthouse-view-1-with-mask.png');
+    mask-repeat: no-repeat;
+    filter: none;
+    // mask-position: 46.7% bottom;
+    mask-size: auto 100%;
+  }
+}
+
+.footer {
+  height: 200px;
+  width: 100%;
+  background-color: green;
+}

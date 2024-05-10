@@ -1,0 +1,55 @@
+$font-path: "../assets/fonts/";
+
+@font-face {
+  font-family: "Brewery";
+  src: url($font-path + "Brewery No2 W06 Light.ttf");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Brewery";
+  src: url($font-path + "Brewery No2 W06 Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Brewery";
+  src: url($font-path + "Brewery No2 W06 Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Brewery";
+  src: url($font-path + "Brewery No2 W06 Bold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Brewery";
+  src: url($font-path + "Brewery No2 W06 XBold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Brewery";
+  src: url($font-path + "Brewery No2 W06 Black.ttf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Brewery";
+  src: url($font-path + "Brewery No2 W06 Heavy.ttf");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Galatea";
+  src: url($font-path + "Galatea Narrow Thin.ttf");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Galatea";
+  src: url($font-path + "Galatea Narrow Regular.ttf");
+  font-weight: 400;
+}

@@ -1,0 +1,13 @@
+<svg width="995" height="672" viewBox="0 0 995 672" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <mask id="mask0_1_9675" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="995" height="672">
+    <path d="M454.432 0.124146L152.545 134.91L158.345 142.92L174.089 148.996L177.955 197.331L170.222 202.303L177.955 210.589V217.494L54.494 281.848L62.78 291.791L66.3706 344.269L3.39701 376.309V381.004L0.63501 383.766L3.39701 400.614L398.915 560.81L405.544 555.839L672.63 671.29L994.955 443.425V417.739L867.074 376.309L877.018 242.352L888.066 232.685L845.255 185.731V174.959L836.416 171.644V160.596L787.253 146.234L789.462 108.118L800.51 101.49L807.415 92.0987L454.432 0.124146Z" fill="black"/>
+  </mask>
+  <g mask="url(#mask0_1_9675)">
+    <rect x="-8" y="-16.9999" width="1012" height="690" fill="url(#pattern0_1_9675)"/>
+  </g>
+  <defs>
+    <pattern id="pattern0_1_9675" patternContentUnits="objectBoundingBox" width="1" height="1">
+      <use xlink:href="#image0_1_9675" transform="matrix(0.00054585 0 0 0.00080058 -0.16996 0)"/>
+    </pattern>
+  </defs>
+</svg>
