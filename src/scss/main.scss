@@ -58,6 +58,30 @@ body {
   }
 }
 
+.visible {
+  display: block;
+  // visibility: visible;
+  // transition: visibility 300ms ease-in-out;
+  // opacity: 1;
+  // transition: opacity 300ms ease-in-out;
+}
+
+.invisible {
+  display: none;
+  // visibility: hidden;
+  // transition: visibility 300ms ease-in-out;
+  // opacity: 0;
+  // transition: opacity 300ms ease-in-out;
+}
+
+.clickable {
+  pointer-events: auto;
+}
+
+.unclickable {
+  pointer-events: none;
+}
+
 
 .header {
   position: relative;
@@ -134,11 +158,15 @@ body {
   align-items: flex-end;
   border: none;
   
+  
   &__img {
-    margin-right: 10px;
+    margin-right: 5%;
+    width: 15%;
   }
 
   &__txt {
+    width: 80%;
+    text-wrap: nowrap;
     line-height: 1;
     transform: translateY(.1rem);
   }
@@ -149,13 +177,8 @@ body {
   position: relative;
   height: 89.68%;
   width: 100%;
-  background-color: #F0EDE8D9;
-  background-size: cover;
-  background-blend-mode: overlay;
 
   &_view-1 {
-    background-image: url('../assets/imgs/penthouse-view-1-full-black-white.jpg');
-
     .signs__location-img {
       transform: rotate(115deg);
     }
@@ -165,9 +188,7 @@ body {
     }
   }
 
-  &_view-2 {
-    background-image: url('../assets/imgs/penthouse-view-2-full-black-white.jpg');
-    
+  &_view-2 { 
     .signs__location-img {
       transform: rotate(40deg) translateX(-15%) translateY(-15%);
     }
@@ -177,24 +198,25 @@ body {
     }
   }
 
-  &__central-block {
+  &__show-block {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    max-height: 100%;
-    transform: translateX(-50%) translateY(-50%);
-  }
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #F0EDE8D9;
+    background-size: cover;
+    background-blend-mode: overlay;
+    // transition: background-image 1s ease-in-out;
 
-  // &__nav {
-  //   position: absolute;
-  //   left: 0;
-  //   top: 50%;
-  //   border-top-right-radius: $border-radius;
-  //   border-bottom-right-radius: $border-radius;
-  //   width: 10%;
-  //   background-color: $background-light-color;
-  //   transform: translateY(-50%);
-  // }
+    &_view-1 {
+      background-image: url('../assets/imgs/penthouse-view-1-full-black-white.jpg');
+    }
+
+    &_view-2 {
+      background-image: url('../assets/imgs/penthouse-view-2-full-black-white.jpg');
+    }
+  }
 
   &__signs {
     position: absolute;
@@ -207,8 +229,20 @@ body {
   }
 }
 
+/* Block that shows image*/
+.show-block {
+  &__central-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-height: 100%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
 /* Styles for main signs */
 .signs {
+  pointer-events: none;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -219,6 +253,7 @@ body {
 
 
   &__change-view-button {
+    pointer-events: auto;
     cursor: pointer;
     margin-left: 90%;
     border: none;
@@ -227,11 +262,13 @@ body {
   }
 
   &__nav {
-    margin-right: 85%;
+    pointer-events: auto;
+    margin-right: 87%;
     border-top-right-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
-    width: 15%;
+    width: 13%;
     background-color: $background-light-color;
+    transform: translateY(-12%);
   }
 
   &__compass-img {
@@ -253,7 +290,7 @@ body {
 
   &__item {
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 5.5% 8%;
     transition: all .5s ease-in-out;
 
     &:hover {
@@ -314,14 +351,6 @@ body {
     background-color: #F0EDE8D9;
     background-size: cover;
     background-blend-mode: overlay;
-
-    // &_view-1 {
-    //   background-image: url('../assets/imgs/penthouse-view-1-full-black-white.jpg');
-    // }
-
-    // &_view-2 {
-    //   background-image: url('../assets/imgs/penthouse-view-2-black-white.jpg');
-    // }
   }
 
   &__img {
@@ -332,8 +361,10 @@ body {
 
     &_view-1 {
       left: 13%;
+      // left: 50%;
       height: 98%;
       mask-image: url('../assets/imgs/penthouse-view-1-with-mask.png');
+      // transform: translateX(-51%);
     }
 
     &_view-2 {
@@ -342,98 +373,112 @@ body {
       mask-image: url('../assets/imgs/penthouse-view-2-with-mask.png');
     }
   }
-  
+}
 
-  .hover-penthouse {
-    position: absolute;
-    
-    width: auto;
-    opacity: 0;
-    transition: opacity .6s ease-in-out;
+.hover-penthouse {
+  pointer-events: all;
+  position: absolute;
+  width: auto;
+  opacity: 0;
+  transition: opacity .6s ease-in-out;
 
-    &_visible {
-      opacity: 1;
-    }
-
-    &_view-1 {
-      left: 24%;
-      top: 2%;
-      height: 47.5%;
-    }
-
-    &_view-2 {
-      left: 21.5%;
-      top: 0;
-      height: 42%;
-    }
+  &_visible {
+    opacity: 1;
   }
 
-  .hover-appartment {
-    position: absolute;
-    width: auto;
-    opacity: 0;
-    transition: opacity .6s ease-in-out;
-
-    &_visible {
-      opacity: 1;
-    }
-
-    &_view-1 {
-      left: 25.3%;
-      top: 27.7%;
-      height: 47%;
-    }
-
-    &_view-2 {
-      left: 24%;
-      top: 26%;
-      height: 42%
-    }
+  &_view-1 {
+    left: 24%;
+    top: 2%;
+    height: 47.5%;
   }
 
-  .hover-cityhouse {
-    position: absolute;
-    width: auto;
-    opacity: 0;
-    transition: opacity .6s ease-in-out;
+  &_view-2 {
+    left: 21.5%;
+    top: 0;
+    height: 42%;
+  }
+}
 
-    &_visible {
-      opacity: 1;
-    }
+.hover-appartment {
+  // pointer-events: visible;
+  position: absolute;
+  width: auto;
+  opacity: 0;
+  transition: opacity .6s ease-in-out;
 
-    &_view-1 {
-      left: 35.5%;
-      top: 48.7%;
-      height: 38.5%;
-    }
-
-    &_view-2 {
-      left: 70.7%;
-      top: 49%;
-      height: 26%;
-    }
+  &_visible {
+    opacity: 1;
   }
 
-  .hover-villa {
-    position: absolute;
-    width: auto;
-    opacity: 0;
-    transition: opacity .6s ease-in-out;
-
-    &_visible {
-      opacity: 1;
-    }
-
-    &_view-1 {
-      left: 16.6%;
-      top: 33%;
-      height: 32.7%;
-    }
-
-    &_view-2 {
-      left: 5%;
-      top: 42.5%;
-      height: 54%;
-    }
+  &_view-1 {
+    left: 25.3%;
+    top: 27.7%;
+    height: 47%;
   }
+
+  &_view-2 {
+    left: 24%;
+    top: 26%;
+    height: 42%
+  }
+
+  // &:hover {
+  //   background-color: aqua;
+  // }
+}
+
+.hover-cityhouse {
+  // pointer-events: visible;
+  position: absolute;
+  width: auto;
+  opacity: 0;
+  transition: opacity .6s ease-in-out;
+
+  &_visible {
+    opacity: 1;
+  }
+
+  &_view-1 {
+    left: 35.5%;
+    top: 48.7%;
+    height: 38.5%;
+  }
+
+  &_view-2 {
+    left: 70.7%;
+    top: 49%;
+    height: 26%;
+  }
+}
+
+.hover-villa {
+  // pointer-events: visible;
+  position: absolute;
+  width: auto;
+  opacity: 0;
+  transition: opacity .6s ease-in-out;
+
+  &_visible {
+    opacity: 1;
+  }
+
+  &_view-1 {
+    left: 16.6%;
+    top: 33%;
+    height: 32.7%;
+  }
+
+  &_view-2 {
+    left: 5%;
+    top: 42.5%;
+    height: 54%;
+  }
+}
+
+.active-pointer {
+  pointer-events: fill;
+}
+
+.not-active-pointer {
+  pointer-events: none;
 }
