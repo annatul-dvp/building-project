@@ -1,4 +1,5 @@
 @forward "./fonts.scss";
+@forward "./keyframes.scss";
 @import "./variables.scss";
 
 * {
@@ -128,6 +129,9 @@ body {
     align-items: center;
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(79, 52, 29, 0.12);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(79, 52, 29, 0.12);
+    box-shadow: 0px 0px 15px 0px rgba(79, 52, 29, 0.12);
     height: 100%;
     width: 23.1%;
     background-color: #FFFFFF;
@@ -153,15 +157,55 @@ body {
   }
 }
 
+/* Кнопка 'По параметрам' */
 .sort-button {
   display: flex;
   align-items: flex-end;
   border: none;
   
-  
   &__img {
     margin-right: 5%;
     width: 15%;
+
+    & circle:nth-child(1n) {
+      animation-name: moveRounds-to-left;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+    
+    & circle:nth-child(2n) {
+      animation-name: moveRounds-to-right;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+    
+    & line:nth-of-type(1) {
+      animation-name: scaleLine-top-left;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      transform-origin: left;
+    }
+    
+    & line:nth-of-type(2) {
+      animation-name: scaleLine-top-right;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      transform-origin: right;
+    }
+    
+    & line:nth-of-type(3) {
+      animation-name: scaleLine-bottom-left;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      transform-origin: left;
+    }
+    
+    & line:nth-of-type(4) {
+      animation-name: scaleLine-bottom-right;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      transform-origin: right;
+    }
   }
 
   &__txt {
@@ -171,8 +215,19 @@ body {
     transform: translateY(.1rem);
   }
 
+  & circle,
+  & line {
+    animation-play-state: paused;
+  }
+
+  &:hover circle,
+  &:hover line {
+    animation-play-state: running;
+  }
+
 }
 
+/* Главный блок */
 .main {
   position: relative;
   height: 89.68%;
@@ -240,7 +295,7 @@ body {
   }
 }
 
-/* Styles for main signs */
+/* Styles for main signs (навигация, переключатели) */
 .signs {
   pointer-events: none;
   display: flex;
@@ -249,8 +304,6 @@ body {
   justify-content: flex-end;
   align-items: baseline;
   column-gap: 2%;
-  // row-gap: 15%;
-
 
   &__change-view-button {
     pointer-events: auto;
@@ -284,7 +337,7 @@ body {
   }
 }
 
-/* Style for main navigation */
+/* Style for main navigation (навигация по видам апартаментов) */
 .nav {
   overflow: hidden;
 
@@ -361,10 +414,8 @@ body {
 
     &_view-1 {
       left: 13%;
-      // left: 50%;
       height: 98%;
       mask-image: url('../assets/imgs/penthouse-view-1-with-mask.png');
-      // transform: translateX(-51%);
     }
 
     &_view-2 {
@@ -375,8 +426,9 @@ body {
   }
 }
 
+/* Далее идут стили подсветок для различных апартаментов */
+
 .hover-penthouse {
-  pointer-events: all;
   position: absolute;
   width: auto;
   opacity: 0;
@@ -400,7 +452,6 @@ body {
 }
 
 .hover-appartment {
-  // pointer-events: visible;
   position: absolute;
   width: auto;
   opacity: 0;
@@ -421,14 +472,9 @@ body {
     top: 26%;
     height: 42%
   }
-
-  // &:hover {
-  //   background-color: aqua;
-  // }
 }
 
 .hover-cityhouse {
-  // pointer-events: visible;
   position: absolute;
   width: auto;
   opacity: 0;
@@ -452,7 +498,6 @@ body {
 }
 
 .hover-villa {
-  // pointer-events: visible;
   position: absolute;
   width: auto;
   opacity: 0;
@@ -481,4 +526,42 @@ body {
 
 .not-active-pointer {
   pointer-events: none;
+}
+
+
+/*Info Window Styles*/
+.info-window {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  row-gap: 10px;
+  padding: 2%;
+  border-radius: $border-radius;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(79, 52, 29, 0.12);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(79, 52, 29, 0.12);
+  box-shadow: 0px 0px 15px 0px rgba(79, 52, 29, 0.12);
+  background-color: $background-light-color;
+
+  &_visible {
+    display: flex;
+  }
+
+  &__main-info {
+    font-size: 1.2rem;
+  }
+
+  &__additional-info {
+    font-size: .8rem;
+  }
+
+  &__floor {
+    padding-bottom: 10%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    color: $text-middle-color;
+    font-family: 'Brewery', Tahoma, Geneva, Verdana, sans-serif;;
+    font-size: 1.1rem;   
+    font-weight: 200;
+  }
 }

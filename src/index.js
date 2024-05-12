@@ -11,6 +11,7 @@ import signCompass from './assets/imgs/compass.svg'
 import signLocation from './assets/imgs/location-img.png'
 
 import { setHoversPointer } from './hooks/useSetHover.js'
+import { setInfoWindow } from './hooks/useSetInfoWindow.js'
 
 /* Header */
 const header = el('header', { class: 'container header' })
@@ -23,10 +24,10 @@ const headerTitle = el('div', { class: 'txt-block header__title' }, [
 const sortSvgImg = svg('svg', { width: '24', height: '18', viewBox: '0 0 24 18', fill: 'none', xmlns: 'http://www.w3.org/2000/svg' },
   [svg('circle', { cx: '18.5', cy: '3.5', r: '3', stroke: '#AD8361' }),
     svg('circle', { cx: '5.5', cy: '14.5', r: '3', transform: 'rotate(-180 5.5 14.5)', stroke: '#AD8361' }),
-    svg('line', { x1: '0.5', y1: '3.5', x2: '15.5', y2: '3.5', stroke: '#AD8361', strokeLinecap: 'round' }),
-    svg('line', { x1: '23.5', y1: '14.5', x2: '8.5', y2: '14.5', stroke: '#AD8361', strokeLinecap: 'round' }),
-    svg('line', { x1: '21.5', y1: '3.5', x2: '23.5', y2: '3.5', stroke: '#AD8361', strokeLinecap: 'round' }),
-    svg('line', { x1: '2.5', y1: '14.5', x2: '0.5', y2: '14.5', stroke: '#AD8361', strokeLinecap: 'round' })
+    svg('line', { class: 'line1', x1: '0.5', y1: '3.5', x2: '15.5', y2: '3.5', stroke: '#AD8361', strokeLinecap: 'round' }),
+    svg('line', { class: 'line2', x1: '21.5', y1: '3.5', x2: '23.5', y2: '3.5', stroke: '#AD8361', strokeLinecap: 'round' }),
+    svg('line', { class: 'line3', x1: '2.5', y1: '14.5', x2: '0.5', y2: '14.5', stroke: '#AD8361', strokeLinecap: 'round' }),
+    svg('line', { class: 'line4', x1: '23.5', y1: '14.5', x2: '8.5', y2: '14.5', stroke: '#AD8361', strokeLinecap: 'round' })
   ])
 sortSvgImg.classList.add('sort-button__img')
 const sortSvgTxt = el('div', { class: 'sort-button__txt' }, 'По параметрам')
@@ -174,8 +175,10 @@ const mainSignCompass = el('img', { class: 'signs__compass-img', src: signCompas
 const mainSignLocation = el('img', { class: 'signs__location-img', src: signLocation })
 
 setChildren(mainSigns, [mainChangeViewButton, mainNav, mainSignCompass, mainSignLocation])
-// mount(main, mainSigns)
-setChildren(main, [showImgView1, showImgView2, mainSigns])
+
+const infoWindow = el('div', { class: 'info-window' })
+
+setChildren(main, [showImgView1, showImgView2, mainSigns, infoWindow])
 setChildren(document.body, [header, main])
 
 const hoversOfBuilging = {
@@ -375,95 +378,188 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   // eslint-disable-next-line no-unused-vars
-  let currentHoveredElement = null
+  // // let currentHoveredElement = null
   const penthouse1Path = document.querySelector('.hover-penthouse_view-1 path')
   // const appartment1Path = document.querySelector('.hover-appartment_view-1 path')
 
   penthouse1Path.addEventListener('mouseenter', (e) => {
-    console.log('penthouse', e.clientX)
-    currentHoveredElement = e.target
+    // console.log('penthouse', e.clientX)
+    // currentHoveredElement = e.target
     penthouseSVG.classList.add('hover-penthouse_visible')
-  })
-
-  penthouseSvgView2.addEventListener('mouseenter', (e) => {
-    console.log('penthouse', e.clientX)
-    currentHoveredElement = e.target
-    penthouseSvgView2.classList.add('hover-penthouse_visible')
+    infoWindow.classList.add('info-window_visible')
+    setInfoWindow(infoWindow, {
+      insale: '4 пентхауса',
+      square: 'от 120 м2',
+      price: 'от 310 000 000 ₽'
+    })
   })
 
   penthouse1Path.addEventListener('mouseleave', (e) => {
-    currentHoveredElement = null
+    // // currentHoveredElement = null
     penthouseSVG.classList.remove('hover-penthouse_visible')
+    infoWindow.classList.remove('info-window_visible')
   })
 
-  penthouseSvgView2.addEventListener('mouseleave', (e) => {
-    currentHoveredElement = null
+  const penthouse2Path = document.querySelector('.hover-penthouse_view-2 path')
+  penthouse2Path.addEventListener('mouseenter', (e) => {
+    // console.log('penthouse', e.clientX)
+    // currentHoveredElement = e.target
+    penthouseSvgView2.classList.add('hover-penthouse_visible')
+    infoWindow.classList.add('info-window_visible')
+    setInfoWindow(infoWindow, {
+      insale: '4 пентхауса',
+      square: 'от 120 м2',
+      price: 'от 310 000 000 ₽'
+    })
+  })
+
+  penthouse2Path.addEventListener('mouseleave', (e) => {
+    // currentHoveredElement = null
     penthouseSvgView2.classList.remove('hover-penthouse_visible')
+    infoWindow.classList.remove('info-window_visible')
   })
 
-  appartmentSVG.addEventListener('mouseenter', (e) => {
-    console.log('appartment', e.clientX)
-    currentHoveredElement = e.target
+  const appartment1Path = document.querySelector('.hover-appartment_view-1 path')
+  appartment1Path.addEventListener('mouseenter', (e) => {
+    // console.log('appartment', e.clientX)
+    // currentHoveredElement = e.target
     appartmentSVG.classList.add('hover-appartment_visible')
+    infoWindow.classList.add('info-window_visible')
+    setInfoWindow(infoWindow, {
+      floor: '4 этаж',
+      insale: '3 квартиры',
+      square: 'от 120 м2',
+      price: 'от 310 000 000 ₽'
+    })
   })
 
-  appartmentSvgView2.addEventListener('mouseenter', (e) => {
-    console.log('appartment', e.clientX)
-    currentHoveredElement = e.target
-    appartmentSvgView2.classList.add('hover-appartment_visible')
-  })
-
-  appartmentSVG.addEventListener('mouseleave', (e) => {
-    currentHoveredElement = null
+  appartment1Path.addEventListener('mouseleave', (e) => {
+    // currentHoveredElement = null
     appartmentSVG.classList.remove('hover-appartment_visible')
+    infoWindow.classList.remove('info-window_visible')
   })
 
-  appartmentSvgView2.addEventListener('mouseleave', (e) => {
-    currentHoveredElement = null
+  const appartment2Path = document.querySelector('.hover-appartment_view-2 path')
+  appartment2Path.addEventListener('mouseenter', (e) => {
+    // console.log('appartment', e.clientX)
+    // currentHoveredElement = e.target
+    appartmentSvgView2.classList.add('hover-appartment_visible')
+    infoWindow.classList.add('info-window_visible')
+    setInfoWindow(infoWindow, {
+      floor: '4 этаж',
+      insale: '3 квартиры',
+      square: 'от 120 м2',
+      price: 'от 310 000 000 ₽'
+    })
+  })
+
+  appartment2Path.addEventListener('mouseleave', (e) => {
+    // currentHoveredElement = null
     appartmentSvgView2.classList.remove('hover-appartment_visible')
+    infoWindow.classList.remove('info-window_visible')
   })
 
-  cityhouseSVG.addEventListener('mouseenter', (e) => {
-    console.log('cityhouse', e.clientX)
-    currentHoveredElement = e.target
+  const cityhouse1Path = document.querySelector('.hover-cityhouse_view-1 path')
+  cityhouse1Path.addEventListener('mouseenter', (e) => {
+    // console.log('cityhouse', e.clientX)
+    // currentHoveredElement = e.target
     cityhouseSVG.classList.add('hover-cityhouse_visible')
+    infoWindow.classList.add('info-window_visible')
+    setInfoWindow(infoWindow, {
+      floor: '1 этаж',
+      insale: '3 ситихауса',
+      square: 'от 120 м2',
+      price: 'от 310 000 000 ₽'
+    })
   })
 
-  cityhouseSvgView2.addEventListener('mouseenter', (e) => {
-    console.log('cityhouse', e.clientX)
-    currentHoveredElement = e.target
-    cityhouseSvgView2.classList.add('hover-cityhouse_visible')
-  })
-
-  cityhouseSVG.addEventListener('mouseleave', (e) => {
-    currentHoveredElement = null
+  cityhouse1Path.addEventListener('mouseleave', (e) => {
+    // currentHoveredElement = null
     cityhouseSVG.classList.remove('hover-cityhouse_visible')
+    infoWindow.classList.remove('info-window_visible')
   })
 
-  cityhouseSvgView2.addEventListener('mouseleave', (e) => {
-    currentHoveredElement = null
+  const cityhouse2Path = document.querySelector('.hover-cityhouse_view-2 path')
+  cityhouse2Path.addEventListener('mouseenter', (e) => {
+    // console.log('cityhouse', e.clientX)
+    // currentHoveredElement = e.target
+    cityhouseSvgView2.classList.add('hover-cityhouse_visible')
+    infoWindow.classList.add('info-window_visible')
+    setInfoWindow(infoWindow, {
+      floor: '1 этаж',
+      insale: '3 ситихауса',
+      square: 'от 120 м2',
+      price: 'от 310 000 000 ₽'
+    })
+  })
+
+  cityhouse2Path.addEventListener('mouseleave', (e) => {
+    // currentHoveredElement = null
     cityhouseSvgView2.classList.remove('hover-cityhouse_visible')
+    infoWindow.classList.remove('info-window_visible')
   })
 
-  villaSVG.addEventListener('mouseenter', (e) => {
-    console.log('villa', e.clientX)
-    currentHoveredElement = e.target
+  const villa1Path = document.querySelector('.hover-villa_view-1 path')
+  villa1Path.addEventListener('mouseenter', (e) => {
+    // console.log('villa', e.clientX)
+    // currentHoveredElement = e.target
     villaSVG.classList.add('hover-villa_visible')
+    infoWindow.classList.add('info-window_visible')
+    setInfoWindow(infoWindow, {
+      square: 'от 120 м2',
+      price: 'от 310 000 000 ₽'
+    })
   })
 
-  villaSvgView2.addEventListener('mouseenter', (e) => {
-    console.log('villa', e.clientX)
-    currentHoveredElement = e.target
-    villaSvgView2.classList.add('hover-villa_visible')
-  })
-
-  villaSVG.addEventListener('mouseleave', (e) => {
-    currentHoveredElement = null
+  villa1Path.addEventListener('mouseleave', (e) => {
+    // currentHoveredElement = null
     villaSVG.classList.remove('hover-villa_visible')
+    infoWindow.classList.remove('info-window_visible')
   })
 
-  villaSvgView2.addEventListener('mouseleave', (e) => {
-    currentHoveredElement = null
+  const villa2Path = document.querySelector('.hover-villa_view-2 path')
+  villa2Path.addEventListener('mouseenter', (e) => {
+    // console.log('villa', e.clientX)
+    // currentHoveredElement = e.target
+    villaSvgView2.classList.add('hover-villa_visible')
+    infoWindow.classList.add('info-window_visible')
+    setInfoWindow(infoWindow, {
+      square: 'от 120 м2',
+      price: 'от 310 000 000 ₽'
+    })
+  })
+
+  villa2Path.addEventListener('mouseleave', (e) => {
+    // currentHoveredElement = null
     villaSvgView2.classList.remove('hover-villa_visible')
+    infoWindow.classList.remove('info-window_visible')
+  })
+
+  main.addEventListener('mousemove', (event) => {
+    const mouseX = Math.floor(event.clientX) - main.getBoundingClientRect().left + 20 + 'px'
+    const mouseY = Math.floor(event.clientY) - main.getBoundingClientRect().top + 10 - (infoWindow.clientHeight / 2) + 'px'
+
+    infoWindow.style.left = mouseX
+    infoWindow.style.top = mouseY
+  }, false)
+
+  /* Hover Animation По параметрам */
+  // let circleStarted = false
+  headerSortButton.addEventListener('mouseover', (event) => {
+    // const elements = [...sortSvgImg.children]
+
+    // if (!circleStarted) {
+    //   for (let i = 1; i <= 4; i++) {
+    //     elements[0].style.cx = elements[0].style.cx - 0.2
+    //     elements[1].style.cx = elements[0].style.cx - 0.6
+    //   }
+    //   circleStarted = true
+    // } else {
+    //   for (let i = 1; i <= 4; i++) {
+    //     elements[0].style.cx = elements[0].style.cx + 0.2
+    //     elements[1].style.cx = elements[0].style.cx + 0.6
+    //   }
+    //   circleStarted = false
+    // }
   })
 })
