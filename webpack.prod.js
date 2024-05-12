@@ -7,6 +7,7 @@ module.exports = merge(common, {
   output: {
     filename: '[contenthash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: "/building-project/",
     assetModuleFilename: 'assets/[hash][ext][query]',
     clean: true,
   },
