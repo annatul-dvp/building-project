@@ -21,6 +21,7 @@ const headerTitle = el('div', { class: 'txt-block header__title' }, [
   el('div', { class: 'txt-block__txt' }, 'Пентхаусы')
 ])
 
+/* 'По параметрам' */
 const sortSvgImg = svg('svg', { width: '24', height: '18', viewBox: '0 0 24 18', fill: 'none', xmlns: 'http://www.w3.org/2000/svg' },
   [svg('circle', { cx: '18.5', cy: '3.5', r: '3', stroke: '#AD8361' }),
     svg('circle', { cx: '5.5', cy: '14.5', r: '3', transform: 'rotate(-180 5.5 14.5)', stroke: '#AD8361' }),
@@ -35,6 +36,7 @@ const headerSortButton = el('button', { class: 'button sort-button header__sort-
 
 setChildren(headerSortButton, [sortSvgImg, sortSvgTxt])
 
+/* Contacts Header */
 const headerContacts = el('div', { class: 'header__contacts' })
 const headerLogoLinkImg = svg('svg', { width: '24', height: '22', viewBox: '0 0 24 22', fill: 'none', xmlns: 'http://www.w3.org/2000/svg' },
   svg('path', { d: 'M23.7652 5.13361C23.0937 2.32965 21.0088 0.360697 18.3839 0.056591C15.7825 -0.247515 13.8337 0.963754 12.364 3.24197C12.2419 3.43268 12.1339 3.62854 11.9977 3.86049C11.9414 3.77286 11.8991 3.7007 11.8568 3.62339C11.0069 2.13379 9.9081 0.963754 8.3726 0.37616C4.95411 -0.922732 0.774902 1.20085 0.0893253 5.83975C-0.244072 8.11797 0.375765 10.1024 1.61544 11.8961C2.51702 13.2001 3.57826 14.3392 4.72871 15.3753C6.97327 17.3958 9.24601 19.3853 11.5047 21.3852C11.6643 21.5244 11.8193 21.6636 11.993 21.8182C12.0541 21.7666 12.1151 21.7203 12.1761 21.6687C14.3972 19.7101 16.6324 17.7669 18.8394 15.7876C20.1354 14.6279 21.361 13.3805 22.38 11.9064C23.1689 10.7621 23.7464 9.51479 23.9343 8.07673C23.953 7.92726 23.9812 7.77263 24 7.62315C24 7.23142 24 6.83454 24 6.44281C23.9202 6.00469 23.8685 5.56142 23.7652 5.13361Z', fill: '#AD8361' })
@@ -53,6 +55,7 @@ setChildren(header, [headerNavButton, headerTitle, headerSortButton, headerConta
 /* Main */
 const main = el('main', { class: 'container main main_view-1' })
 
+/* Blocks that shows images of view 1 and view 2 */
 const showImgView1 = el('div', { class: 'show-block main__show-block main__show-block_view-1 visible clickable' })
 const showImgView2 = el('div', { class: 'show-block main__show-block main__show-block_view-2 invisible unclickable' })
 
@@ -62,19 +65,21 @@ const mainCentralBlockBgImg = el('img', { class: 'picture-block__bg', src: panth
 const mainCentralBlockBgFilter = el('div', { class: 'picture-block__bg-filter picture-block__bg-filter_view-1' })
 const mainCentralBlockImg = el('img', { class: 'picture-block__img picture-block__img_view-1', src: panthouseView1 })
 
-/* Main central image appartment hovers */
+/* Main central image penthouse hover for view 1 */
 const penthouseSVG = svg('svg', { width: '695', height: '325', viewBox: '0 0 695 325', fill: 'none', xmlns: 'http://www.w3.org/2000/svg' },
   svg('path', { opacity: '0.8', d: 'M0.5 137L306.73 0L657.467 91.2493L645.594 106.059L642 150L684.5 161.5V173L694.5 177.5L580 246L569.5 241L474.5 304L436.5 291L379 324.5L21.293 201.608L17.5 151L6.5 145L0.5 137Z', fill: '#AD8361' })
 )
 penthouseSVG.classList.add('hover-penthouse')
 penthouseSVG.classList.add('hover-penthouse_view-1')
 
+/* Main central image appartment hover for view 1 */
 const appartmentSVG = svg('svg', { width: '716', height: '320', viewBox: '0 0 716 320', fill: 'none', xmlns: 'http://www.w3.org/2000/svg' },
   svg('path', { opacity: '0.8', d: 'M357 152L0 24.5L6 32L18 175.5L395 319.5L442.5 284L480.5 297L574 226.5L594 233.5L697.5 157.5L704 63L715.5 52.5L673 6V0L563.5 71.5L550 68L455 130L412.5 116L357 152Z', fill: '#AD8361' })
 )
 appartmentSVG.classList.add('hover-appartment')
 appartmentSVG.classList.add('hover-appartment_view-1')
 
+/* Main central image cityhouse hover for view 1 */
 const cityhouseSVG = svg('svg', { width: '560', height: '262', viewBox: '0 0 560 262', fill: 'none', xmlns: 'http://www.w3.org/2000/svg' },
   [svg('path', { opacity: '0.8', d: 'M552 86.0002L560 0.500183L486 55.5002L482 149L552 86.0002Z', fill: '#AD8361' }),
     svg('path', { opacity: '0.8', d: 'M4 156.5L0.5 76L257.5 173.5L303 139.5L343 151L439.5 78.5L434.5 170.5L341 247L300 228L254.5 262L4 156.5Z', fill: '#AD8361' })
@@ -83,6 +88,7 @@ const cityhouseSVG = svg('svg', { width: '560', height: '262', viewBox: '0 0 560
 cityhouseSVG.classList.add('hover-cityhouse')
 cityhouseSVG.classList.add('hover-cityhouse_view-1')
 
+/* Main central image villa hover for view 1 */
 const villaSVG = svg('svg', { width: '141', height: '217', viewBox: '0 0 141 217', fill: 'none', xmlns: 'http://www.w3.org/2000/svg' },
   svg('path', { opacity: '0.8', d: 'M133.5 107.5L125 0L0 64L8.5 75.5L16.5 165L141 217L133.5 107.5Z', fill: '#AD8361' })
 )
@@ -110,25 +116,28 @@ const mainCentralBlock2BgImg = el('img', { class: 'picture-block__bg', src: pant
 const mainCentralBlock2BgFilter = el('div', { class: 'picture-block__bg-filter picture-block__bg-filter_view-2' })
 const mainCentralBlock2Img = el('img', { class: 'picture-block__img picture-block__img_view-2', src: panthouseView2 })
 
-/* Main central image appartment hovers */
+/* Main central image penthouse hover for view 2 */
 const penthouseSvgView2 = svg('svg', { width: '681', height: '281', viewBox: '0 0 681 281', fill: 'none', xmlns: 'http://www.w3.org/2000/svg' },
   svg('path', { opacity: '0.8', d: 'M352 31L313 24L260 33L39 92V98L0.5 109L7 119L21.5 125L25 185.5L380 280.5L658.5 173.5V119L672.5 114.5L680.5 104.5L647 92V87.5L596.5 78V45.5H587.5H582L577.5 74.5L371 31V0.5H360.5L352 6.5V31Z', fill: '#AD8361' })
 )
 penthouseSvgView2.classList.add('hover-penthouse')
 penthouseSvgView2.classList.add('hover-penthouse_view-2')
 
+/* Main central image appartment hover for view 2 */
 const appartmentSvgView2 = svg('svg', { width: '657', height: '281', viewBox: '0 0 657 281', fill: 'none', xmlns: 'http://www.w3.org/2000/svg' },
   svg('path', { opacity: '0.8', d: 'M641 158L363.5 281H354.5V234.5L5 124L0 9.5L354.5 106L633 0.5V38L656.5 45.5L652 106L641 113V158Z', fill: '#AD8361' })
 )
 appartmentSvgView2.classList.add('hover-appartment')
 appartmentSvgView2.classList.add('hover-appartment_view-2')
 
+/* Main central image cityhouse hover for view 2 */
 const cityhouseSvgView2 = svg('svg', { width: '175', height: '173', viewBox: '0 0 175 173', fill: 'none', xmlns: 'http://www.w3.org/2000/svg' },
   svg('path', { opacity: '0.8', d: 'M0 172.5L2 88.5V80.5L174.5 0.5L169 84.5L0 172.5Z', fill: '#AD8361' })
 )
 cityhouseSvgView2.classList.add('hover-cityhouse')
 cityhouseSvgView2.classList.add('hover-cityhouse_view-2')
 
+/* Main central image villa hover for view 2 */
 const villaSvgView2 = svg('svg', { width: '537', height: '356', viewBox: '0 0 537 356', fill: 'none', xmlns: 'http://www.w3.org/2000/svg' },
   svg('path', { opacity: '0.8', d: 'M246 32L159 0.5L25 46V52L0 60.5L6 74L14.5 192L35 198L42 192L403.5 355.5L536.5 284.5V117.5L322 48.5L307 43.5L310 41L262.5 26L246 32Z', fill: '#AD8361' })
 )
@@ -150,10 +159,6 @@ setHoversPointer(penthouseSvgView2, hoverView2)
 
 mount(showImgView2, mainCentralBlock2)
 
-// setChildren(main, [showImgView1, showImgView2])
-// mount(main, mainCentralBlock)
-// mount(main, mainCentralBlock2)
-
 /* Navigation in main Block */
 const mainNav = el('nav', { class: 'nav signs__nav main__nav' })
 const mainNavList = el('ul', { class: 'nav__list' })
@@ -164,9 +169,8 @@ const mainNavItem4 = el('li', { class: 'nav__item' }, 'Виллы')
 
 setChildren(mainNavList, [mainNavItem1, mainNavItem2, mainNavItem3, mainNavItem4])
 mount(mainNav, mainNavList)
-// mount(main, mainNav)
 
-/* Signs in main block */
+/* Signs (interactive elements) in main block */
 const mainSigns = el('div', { class: 'signs main__signs' })
 const mainChangeViewButton = el('button', { class: 'change-view-button signs__change-view-button' },
   el('img', { class: 'change-view-button__img', src: signView1, alt: 'Вид 1' })
@@ -176,11 +180,13 @@ const mainSignLocation = el('img', { class: 'signs__location-img', src: signLoca
 
 setChildren(mainSigns, [mainChangeViewButton, mainNav, mainSignCompass, mainSignLocation])
 
+/* Info message window with information about kinds of appartment */
 const infoWindow = el('div', { class: 'info-window' })
 
 setChildren(main, [showImgView1, showImgView2, mainSigns, infoWindow])
 setChildren(document.body, [header, main])
 
+/* Gathered info about hovers of different kind of apparments and its views */
 const hoversOfBuilging = {
   Пентхаусы: {
     1: penthouseSVG,
@@ -206,6 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let view = 1
 
+  /* Function that switch view styles */
   function switchView (chosenView) {
     if (chosenView === 1) {
       main.classList.remove('main_view-2')
@@ -236,9 +243,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /* Switch on penthouses */
   mainNavItem1.addEventListener('click', () => {
-    console.log('mainNavItem1')
-
+    /* У вилл отображение видов противоположно остальным типам,
+    поэтому выполняем проверку, было ли до этого выбрано Виллы,
+    если да, то переключаем отображение картинки здания */
     if (chosenNavItemText === 'Виллы') {
       switchView(view)
     }
@@ -265,8 +274,9 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   mainNavItem2.addEventListener('click', () => {
-    console.log('mainNavItem2')
-
+    /* У вилл отображение видов противоположно остальным типам,
+    поэтому выполняем проверку, было ли до этого выбрано Виллы,
+    если да, то переключаем отображение картинки здания */
     if (chosenNavItemText === 'Виллы') {
       switchView(view)
     }
@@ -293,8 +303,9 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   mainNavItem3.addEventListener('click', () => {
-    console.log('mainNavItem3')
-
+    /* У вилл отображение видов противоположно остальным типам,
+    поэтому выполняем проверку, было ли до этого выбрано Виллы,
+    если да, то переключаем отображение картинки здания */
     if (chosenNavItemText === 'Виллы') {
       switchView(view)
     }
@@ -321,9 +332,11 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   mainNavItem4.addEventListener('click', () => {
-    console.log('mainNavItem4')
-
+    /* Проверка нужно ли переключить при клике вид */
     if (chosenNavItemText !== 'Виллы') {
+      /* Доп проверка, так как у Вилл противоположное отображение видов.
+      Т.е. для Виллы Вид 1 отображается, то здание, которое для остальных Вид 2
+      и наоборот */
       if (view === 1) {
         switchView(2)
       } else {
@@ -352,6 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
+  /* Switching views */
   const changeViewButtonImgs = mainChangeViewButton.children
   mainChangeViewButton.addEventListener('click', () => {
     if (view === 1) {
@@ -377,14 +391,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
-  // eslint-disable-next-line no-unused-vars
-  // // let currentHoveredElement = null
+  /* Hover penthouse with mouseover */
   const penthouse1Path = document.querySelector('.hover-penthouse_view-1 path')
-  // const appartment1Path = document.querySelector('.hover-appartment_view-1 path')
-
   penthouse1Path.addEventListener('mouseenter', (e) => {
-    // console.log('penthouse', e.clientX)
-    // currentHoveredElement = e.target
     penthouseSVG.classList.add('hover-penthouse_visible')
     infoWindow.classList.add('info-window_visible')
     setInfoWindow(infoWindow, {
@@ -394,16 +403,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
+  /* Deleting Hover penthouse with mouseover */
   penthouse1Path.addEventListener('mouseleave', (e) => {
-    // // currentHoveredElement = null
     penthouseSVG.classList.remove('hover-penthouse_visible')
     infoWindow.classList.remove('info-window_visible')
   })
 
+  /* Hover penthouse with mouseover */
   const penthouse2Path = document.querySelector('.hover-penthouse_view-2 path')
   penthouse2Path.addEventListener('mouseenter', (e) => {
-    // console.log('penthouse', e.clientX)
-    // currentHoveredElement = e.target
     penthouseSvgView2.classList.add('hover-penthouse_visible')
     infoWindow.classList.add('info-window_visible')
     setInfoWindow(infoWindow, {
@@ -413,16 +421,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
+  /* Deleting Hover penthouse with mouseover */
   penthouse2Path.addEventListener('mouseleave', (e) => {
-    // currentHoveredElement = null
     penthouseSvgView2.classList.remove('hover-penthouse_visible')
     infoWindow.classList.remove('info-window_visible')
   })
 
+  /* Hover appartment with mouseover */
   const appartment1Path = document.querySelector('.hover-appartment_view-1 path')
   appartment1Path.addEventListener('mouseenter', (e) => {
-    // console.log('appartment', e.clientX)
-    // currentHoveredElement = e.target
     appartmentSVG.classList.add('hover-appartment_visible')
     infoWindow.classList.add('info-window_visible')
     setInfoWindow(infoWindow, {
@@ -433,16 +440,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
+  /* Deleting Hover appartment with mouseover */
   appartment1Path.addEventListener('mouseleave', (e) => {
-    // currentHoveredElement = null
     appartmentSVG.classList.remove('hover-appartment_visible')
     infoWindow.classList.remove('info-window_visible')
   })
 
+  /* Hover appartment with mouseover */
   const appartment2Path = document.querySelector('.hover-appartment_view-2 path')
   appartment2Path.addEventListener('mouseenter', (e) => {
-    // console.log('appartment', e.clientX)
-    // currentHoveredElement = e.target
     appartmentSvgView2.classList.add('hover-appartment_visible')
     infoWindow.classList.add('info-window_visible')
     setInfoWindow(infoWindow, {
@@ -453,16 +459,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
+  /* Deleting Hover appartment with mouseover */
   appartment2Path.addEventListener('mouseleave', (e) => {
-    // currentHoveredElement = null
     appartmentSvgView2.classList.remove('hover-appartment_visible')
     infoWindow.classList.remove('info-window_visible')
   })
 
+  /* Hover cityhouse with mouseover */
   const cityhouse1Path = document.querySelector('.hover-cityhouse_view-1 path')
   cityhouse1Path.addEventListener('mouseenter', (e) => {
-    // console.log('cityhouse', e.clientX)
-    // currentHoveredElement = e.target
     cityhouseSVG.classList.add('hover-cityhouse_visible')
     infoWindow.classList.add('info-window_visible')
     setInfoWindow(infoWindow, {
@@ -473,16 +478,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
+  /* Deleting Hover cityhouse with mouseover */
   cityhouse1Path.addEventListener('mouseleave', (e) => {
-    // currentHoveredElement = null
     cityhouseSVG.classList.remove('hover-cityhouse_visible')
     infoWindow.classList.remove('info-window_visible')
   })
 
+  /* Hover cityhouse with mouseover */
   const cityhouse2Path = document.querySelector('.hover-cityhouse_view-2 path')
   cityhouse2Path.addEventListener('mouseenter', (e) => {
-    // console.log('cityhouse', e.clientX)
-    // currentHoveredElement = e.target
     cityhouseSvgView2.classList.add('hover-cityhouse_visible')
     infoWindow.classList.add('info-window_visible')
     setInfoWindow(infoWindow, {
@@ -493,16 +497,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
+  /* Deleting Hover cityhouse with mouseover */
   cityhouse2Path.addEventListener('mouseleave', (e) => {
-    // currentHoveredElement = null
     cityhouseSvgView2.classList.remove('hover-cityhouse_visible')
     infoWindow.classList.remove('info-window_visible')
   })
 
+  /* Hover villa with mouseover */
   const villa1Path = document.querySelector('.hover-villa_view-1 path')
   villa1Path.addEventListener('mouseenter', (e) => {
-    // console.log('villa', e.clientX)
-    // currentHoveredElement = e.target
     villaSVG.classList.add('hover-villa_visible')
     infoWindow.classList.add('info-window_visible')
     setInfoWindow(infoWindow, {
@@ -511,16 +514,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
+  /* Deleting Hover villa with mouseover */
   villa1Path.addEventListener('mouseleave', (e) => {
-    // currentHoveredElement = null
     villaSVG.classList.remove('hover-villa_visible')
     infoWindow.classList.remove('info-window_visible')
   })
 
+  /* Hover villa with mouseover */
   const villa2Path = document.querySelector('.hover-villa_view-2 path')
   villa2Path.addEventListener('mouseenter', (e) => {
-    // console.log('villa', e.clientX)
-    // currentHoveredElement = e.target
     villaSvgView2.classList.add('hover-villa_visible')
     infoWindow.classList.add('info-window_visible')
     setInfoWindow(infoWindow, {
@@ -529,12 +531,13 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
+  /* Deleting Hover villa with mouseover */
   villa2Path.addEventListener('mouseleave', (e) => {
-    // currentHoveredElement = null
     villaSvgView2.classList.remove('hover-villa_visible')
     infoWindow.classList.remove('info-window_visible')
   })
 
+  /* Setting infoWindow location that will be showed on hovers  */
   main.addEventListener('mousemove', (event) => {
     const mouseX = Math.floor(event.clientX) - main.getBoundingClientRect().left + 20 + 'px'
     const mouseY = Math.floor(event.clientY) - main.getBoundingClientRect().top + 10 - (infoWindow.clientHeight / 2) + 'px'
@@ -542,24 +545,4 @@ document.addEventListener('DOMContentLoaded', () => {
     infoWindow.style.left = mouseX
     infoWindow.style.top = mouseY
   }, false)
-
-  /* Hover Animation По параметрам */
-  // let circleStarted = false
-  headerSortButton.addEventListener('mouseover', (event) => {
-    // const elements = [...sortSvgImg.children]
-
-    // if (!circleStarted) {
-    //   for (let i = 1; i <= 4; i++) {
-    //     elements[0].style.cx = elements[0].style.cx - 0.2
-    //     elements[1].style.cx = elements[0].style.cx - 0.6
-    //   }
-    //   circleStarted = true
-    // } else {
-    //   for (let i = 1; i <= 4; i++) {
-    //     elements[0].style.cx = elements[0].style.cx + 0.2
-    //     elements[1].style.cx = elements[0].style.cx + 0.6
-    //   }
-    //   circleStarted = false
-    // }
-  })
 })

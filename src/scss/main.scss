@@ -83,7 +83,7 @@ body {
   pointer-events: none;
 }
 
-
+/* Header styles */
 .header {
   position: relative;
   display: flex;
@@ -156,6 +156,7 @@ body {
     font-size: 1.14rem;
   }
 }
+/* End of header styles */
 
 /* Кнопка 'По параметрам' */
 .sort-button {
@@ -226,6 +227,7 @@ body {
   }
 
 }
+/* Конец стилей для кнопка 'По параметрам' */
 
 /* Главный блок */
 .main {
@@ -262,7 +264,6 @@ body {
     background-color: #F0EDE8D9;
     background-size: cover;
     background-blend-mode: overlay;
-    // transition: background-image 1s ease-in-out;
 
     &_view-1 {
       background-image: url('../assets/imgs/penthouse-view-1-full-black-white.jpg');
@@ -283,6 +284,7 @@ body {
     padding-bottom: 3%;
   }
 }
+/* Конец стилей для главного блока */
 
 /* Block that shows image*/
 .show-block {
@@ -294,6 +296,7 @@ body {
     transform: translateX(-50%) translateY(-50%);
   }
 }
+/* End styles for block that shows image*/
 
 /* Styles for main signs (навигация, переключатели) */
 .signs {
@@ -336,6 +339,7 @@ body {
     transition: all 1s ease-in-out;
   }
 }
+/* End of styles for main signs */
 
 /* Style for main navigation (навигация по видам апартаментов) */
 .nav {
@@ -361,6 +365,7 @@ body {
     }
   }
 }
+/* End of style for main navigation */
 
 /* Styles for central image block */
 .picture-block {
@@ -425,9 +430,9 @@ body {
     }
   }
 }
+/* End of styles for central image block */
 
 /* Далее идут стили подсветок для различных апартаментов */
-
 .hover-penthouse {
   position: absolute;
   width: auto;
@@ -520,13 +525,17 @@ body {
   }
 }
 
+/* активны для подсветки */
 .active-pointer {
   pointer-events: fill;
 }
 
+/* не активны для подсветки */
 .not-active-pointer {
   pointer-events: none;
 }
+
+/* Конец стилей подсветок для различных апартаментов */
 
 
 /*Info Window Styles*/
@@ -565,3 +574,4 @@ body {
     font-weight: 200;
   }
 }
+/*End Info Window Styles*/

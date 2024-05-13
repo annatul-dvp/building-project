@@ -1,3 +1,5 @@
+/* Функция для задания активного hover элемента и для остальных
+задание статуса неактивных для подсветки элементов */
 export function setHoversPointer (activeElement, allElements) {
   activeElement.classList.remove('not-active-pointer')
   activeElement.classList.add('active-pointer')

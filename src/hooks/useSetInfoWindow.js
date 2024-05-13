@@ -1,10 +1,13 @@
 import { el, setChildren } from 'redom'
 
+/* Задание информации для infoWindow с информацией апартаментах
+на вход поступает сам элемент, в который добавляется информация
+и объект с информацией по соответствующим полям.
+Если поле существует информация о нём добавляестся, если нет - нет */
 export function setInfoWindow (element, info) {
   const infoKeys = Object.keys(info)
   // const amountOfKeys = infoKeys.length()
   const infos = []
-  console.log(info)
 
   if (infoKeys.includes('floor')) {
     infos.push(el(
